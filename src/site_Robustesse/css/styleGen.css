@@ -1,0 +1,341 @@
+:root {
+    --deg: 45deg;
+    /*
+  --color1: #c1c1c7;
+  --color2: #a2b3ba;
+*/
+    --color1: white;
+    --color2: white;
+    --colorBouton: #00baff;
+}
+#div_nav #div_frmLS div {
+    clear: both;
+    float: left;
+    margin: 2px;
+    width: 130px;
+    padding: 4px;
+    border: solid;
+}
+#div_nav #div_frmLS {
+    margin-top: 50px;
+    margin-left: 2px;
+    margin-right: 2px;
+}
+#div_nav #div_frmLS form div input {
+    width: 100px;
+    text-align: center;
+}
+#div_nav #div_frmLS form div .titrels  {
+    border:none;
+}
+#div_nav #div_frmLS form div .titrels input{
+    width:70px;
+}
+#div_nav #div_frmLS form div .titrels input:first-child{
+    width:30px;
+}
+#div_contenu {
+    text-align: center;
+    color: brown;
+    /*background-color: var(--main-bg-color);*/
+    /*    background: linear-gradient(var(--deg), var(--color1), var(--color2));*/
+    margin-left: 170px;
+    /* largeur de la sidebar*/
+    min-height: 200px;
+    /*    float:left;*/
+}
+#onglets {
+    display: none;
+}
+#onglets li {
+    position: relative;
+    float: left;
+    list-style: none;
+    padding: 2px 5px 7px;
+    margin-right: 5px;
+    border: 1px solid #1175AE;
+    cursor: pointer;
+    background-color: var(--color1);
+    color: #0D5995;
+}
+#onglets .actif {
+    border-bottom: none;
+    font-weight: bold;
+    z-index: 10;
+}
+#contenuOnglet {
+    clear: both;
+    position: relative;
+    margin: 0 10px;
+    padding: 10px;
+    border: 5px solid #0D5995;
+    z-index: 5;
+    top: -6px;
+    /*background-color: #9493b4;*/
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--deg)), color-stop(var(--color1)), to(var(--color2)));
+    background: linear-gradient(var(--deg), var(--color1), var(--color2));
+    color: #0F67A1;
+    overflow: hidden;
+    border-radius: 15px;
+}
+/* Selection*/
+.div_contenu_Saisie {
+    width: 780;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    /* aligne sur l'axe secondaire */
+}
+.div_contenu_Saisie_1 {
+    margin: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    /* aligne sur l'axe principale , space around : les éléments sont étirés sur tout l'axe avec espace sur les extrémités*/
+}
+.div_contenu_Saisie_1 .div_select {
+    height: 25px;
+    overflow: hidden;
+    border: 1px solid;
+    margin: 10 10;
+    color: black;
+    padding-right: 10px;
+}
+.div_contenu_Saisie_1 .div_Titre_Select {
+    color: black;
+    clear: both;
+    float: left;
+    height: 25px;
+    text-align: center;
+    margin-right: 2px;
+    margin-left: 20px;
+}
+/* Mesure*/
+.div_contenu_Saisie_2 {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.div_contenu_Saisie_2 .div_tableau {
+    max-height: 300px;
+    overflow: auto;
+    /*pour activer les scrollbarres*/
+    float: left;
+    margin-top: 10px;
+}
+.div_editable {
+    text-align: right;
+    margin-left: 1em;
+}
+.classdivsaisieMesure {
+    text-align: right;
+    background: var(--color2);
+    width:50px;
+}
+/* bouton*/
+.div_contenu_Saisie_3 {
+    text-align: center;
+    margin: 10px;
+    /*    min-height:300px; 
+    height:450px;/*pour IE qui comprend rien, et qui ne reconnait pas min-height, mais qui comprend mal height*/
+}
+.div_contenu_Saisie_3 #div_Button {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient : horizontal;
+    -webkit-box-direction : normal;
+    -ms-flex-direction : row;
+    flex-direction : row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+
+    -ms-flex-pack :distribute;
+
+    justify-content :space-around;  
+    -ms-flex-line-pack: center;  
+    align-content: center;
+
+
+}
+.flexdiv {
+    -ms-flex: 0; /* IE 10 */ 
+    -webkit-box-flex : 0; 
+    flex : 0 0 auto;
+    margin:10px;
+}
+.div_contenu_Saisie_3 div button,
+.div_contenu_Saisie_3 div #labelOuvrir,
+.div_contenu_Saisie_3 div #labelOuvrir1,
+.div_contenu_Saisie_3 div #labelOuvrir2 {
+    font-size: 0.8em;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    border: 0;
+    text-transform: lowercase;
+    letter-spacing: 0.125em;
+    font-weight: bold;
+    color: gray;
+    -webkit-transition: background .275s;
+    transition: background .275s;
+    position: relative;
+    /* utile pour l'affichage de copié'*/
+    border: 1px solid black;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--deg)), color-stop(var(--color1)), to(var(--color2)));
+    background: linear-gradient(var(--deg), var(--color1), var(--color2));
+    width: 200px;
+    height: 70px;
+    margin: 0 15px;
+    padding: 0;
+}
+#csvFileInput {
+    left: 0;
+    top: 0;
+    right: 0;
+    position: absolute;
+    text-align: center;
+    opacity: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+
+}
+.div_contenu_Saisie_3 div button:hover,
+.div_contenu_Saisie_3 div button:focus,
+.div_contenu_Saisie_3 div #labelOuvrir:hover,
+.div_contenu_Saisie_3 div #labelOuvrir1:hover,
+.div_contenu_Saisie_3 div #labelOuvrir2:hover {
+    background: #1f9ae7;
+}
+.div_contenu_Saisie_3 div .boutonCommentaire {
+    display: none;
+}
+.div_contenu_Saisie_3 div button:hover+.boutonCommentaire,
+.div_contenu_Saisie_3 div #labelOuvrir:hover+.boutonCommentaire,
+.div_contenu_Saisie_3 div #labelOuvrir1:hover+.boutonCommentaire,
+.div_contenu_Saisie_3 div #labelOuvrir2:hover+.boutonCommentaire {
+    display: block;
+    color: black;
+    background: bisque;
+    position: absolute;
+    z-index: 1;
+}
+/* Just to play with animations */
+.div_contenu_Saisie_3 .copiedtext {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: translateY(-1em);
+    transform: translateY(-1em);
+    color: #000;
+    -webkit-transition: all .500s;
+    transition: all .500s;
+}
+.div_contenu_Saisie_3 .copied .copiedtext {
+    opacity: 1;
+    -webkit-transform: translateY(-2em);
+    transform: translateY(-2em);
+}
+.div_contenu_saisie_4 {
+    clear: both;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+.div_commentaire [id="txtcommentaire"] {
+    margin: 0.5em;
+    border: 1px solid black;
+    min-width: 500px;
+    height: 40px;
+}
+textarea {
+    font-size: 0.6em;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    color: black;
+    position: relative;
+    width: 95%;
+    max-width: 100%;
+    height: 75px;
+    background: var(--color2);
+    border: 1px solid var(--color2);
+}
+textarea::-webkit-input-placeholder {
+    color: gray;
+    font-size: 1em;
+}
+textarea:-ms-input-placeholder {
+    color: gray;
+    font-size: 1em;
+}
+textarea:-moz-placeholder {
+    color: gray;
+    font-size: 1em;
+}
+textarea::-moz-placeholder {
+    color: gray;
+    font-size: 1em;
+}
+#div_collerclipboard button,
+#div_collerclipboard1 button,
+#div_collerclipboard2 button {
+    height: 2em;
+    font-size: 0.6em;
+    padding: 0;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #afafdb;
+}
+#collerclipboard,
+#collerclipboard1,
+#collerclipboard2 {
+    display: none;
+    clear: both;
+    float: inherit;
+    width: 100%;
+    height: 200px;
+    padding: 0px 0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+/*Doc*/
+#div_doc {
+    position:absolute;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.div_clipboard {
+    display: block;
+    width: 0px;
+    height: 0px;
+    text-align: center;
+    /*    overflow:hidden; ne pas le mettre sinon ne colle pas dans le presse papier*/
+}
+/*Aide*/
+.sci {
+    font-style: italic;
+}
+#doc {
+    width: 350px;
+    background : white;
+}

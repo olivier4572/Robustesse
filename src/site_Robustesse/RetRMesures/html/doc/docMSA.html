@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>documentation Méthode de calcul ANOVA MSA 4th</title>
+    <meta name="description" content="Documentation RetR.">
+    <link rel="stylesheet" href="../../../css/mainGen.css">
+    <!--    <link rel="stylesheet" href="../../../css/styleGen.css">-->
+
+</head>
+
+<style>
+    li {
+        display: list-item;
+    }
+    
+    .gras {
+        font-weight: 700
+    }
+    .souligner{
+        text-decoration:underline;
+    }
+    
+    .classimg li img , .classimg{
+        vertical-align: middle;
+    }
+    
+    .imgTableau{
+        width :1000px;
+    }
+</style>
+
+<body>
+    <div id="doc">
+        <h1>Méthode de calcul ANOVA selon MSA 4th</h1>
+        <br/>
+        <h2>Synopsis</h2>
+        <img src="ImagedocMSA/Synopsys.png" alt="synopsis">
+        <h2>1ère étape : ANOVA à effets aléatoires</h2>
+        <p>Dans un premier temps, il faut utiliser une ANOVA (Analysis of Variance) à effets aléatoires. L’objectif est de déterminer si l’interaction opérateur*pièce est significative car comme expliqué dans le schéma les méthodes de calcul sont différentss.<br/><br/> Soit Y<sub>ijr</sub> représentant la mesure de l’opérateur i pour la pièce j lors de la répétition r. On considère que l’on a : <span class="gras">Y<sub>ijr</sub> = µ + α<sub>i</sub> + β<sub>i</sub> + (αβ)<sub>ij</sub> + ε<sub>ijr</sub> </span><br/><br/>
+        </p>
+        <ul>
+            <li><span class="gras">µ</span> représente la moyenne de l’ensemble des valeurs ; </li>
+            <li><span class="gras">α<sub>i</sub> </span>représente l’effet (ou biais) dû à l’opérateur i ; </li>
+            <li><span class="gras">β<sub>i</sub> </span>représente l’effet dû à la pièce j ; </li>
+            <li><span class="gras">(αβ)<sub>ij</sub> </span>représente l’effet dû à la l’interaction opérateur/pièces </li>
+            <li><span class="gras">ε<sub>ijr</sub></span> représente l’erreur distribuée normalement avec une moyenne de 0 et une variance de σ²ε</li>
+        </ul>
+        La somme des variances nous donne : <span class="gras">σ<sub>y</sub>² = σ<sub>α</sub>² + σ<sub>β</sub>² + σ<sub>(αβ)</sub>² + σ<sub>ε</sub>² </span><br/><br/> Notations :
+        <ul class = "classimg">
+            <li><span class="gras">a</span> nombre d’opérateurs (a=2 dans l’exemple) ;</li>
+            <li><span class="gras">b</span> nombre de pièces (b=10 dans l’exemple) ; </li>
+            <li><span class="gras">c</span> nombre de répétitions de mesures (n=2 dans l’exemple)</li>
+            <li><span class="gras">Y<sub>ijk</sub></span> représente la mesure de l’opérateur i, sur la pièce j ; pour la kième répétition ;</li>
+            <li><span class="gras">Y… </span> = moyenne générale = <img src="ImagedocMSA/image001.png" alt="1/abc*Sommeai*Sommebj*Sommeck*Yijk">;</li>
+            <li><img src="ImagedocMSA/image002.png"> représente la notation abrégée de <img src="ImagedocMSA/image003.png" alt="1/r*Sommerk*Yijk">;</li>
+            <li><img src="ImagedocMSA/image004.png"> représente la notation <img src="ImagedocMSA/image005.png" alt="1/(op*r)*Sommeopi*Sommerk*Yijk"></li>
+        </ul>
+        <br/> Rappelons que l’analyse de la variance part de la décomposition de la somme totale des carrés des écarts de toutes les observations : <br/>SC<sub>T</sub> = SC<sub>O</sub> + SC<sub>P</sub> + SC<sub>OP</sub> + SC<sub>R</sub> avec :
+        <ul class = "classimg">
+            <li>Somme des carrés totale : <img src="ImagedocMSA/image006.png" alt="SC_T = ∑_i=1 ^a ▒∑_j=1 ^b ▒∑_k=1 ^c ▒[Yijk -  Y ̅…]²"></li>
+            <li>Somme des carrés opérateurs : <img src="ImagedocMSA/image007.png" alt="SC_o = bc∑_i=1 ^a ▒〖[Y ̅i..- Y ̅…]²〗"></li>
+            <li>Somme des carrés pièces : <img src="ImagedocMSA/image008.png" alt="SC_P = ac∑_j=1 ^b ▒〖[Y ̅.j.- Y ̅…]²〗"></li>
+            <li>Somme des carrés interactions : <img src="ImagedocMSA/image009.png" alt="SC_op = c∑_i=1 ^a ▒∑_(j=1)^b▒〖[Y ̅ij.-Y ̅i..(-Y) ̅.j. - Y ̅…]²〗"></li>
+        </ul>
+        <br/> La table ANOVA s’écrit de la manière suivante :<br/>
+        <img src="ImagedocMSA/image010.png" alt="Anova avec interaction" class = "imgTableau"> <br/>En cas d’interaction non significative (p > 0.05), on fusionne l’interaction avec la dispersion résiduelle, les ratios MC<sub>R</sub>, F<sub>0</sub> et F<sub>1</sub> se calculent alors par la relation :<br/>
+        <img src="ImagedocMSA/image011.png" alt="Anova avec interaction non significative" class = "imgTableau">
+        <br/>
+        <h2>2ème étape : Gage R&amp;R</h2>
+        <h3>1ère sous partie : Interaction Opérateur*Pièce non significative</h3>
+        Si l’interaction n’est pas significative les calculs de la GRR sont les suivants :<br/>
+        <img src="ImagedocMSA/image012.png" alt="Méthode Anova avec interaction non significative" class = "imgTableau"><br/>
+        <img src="ImagedocMSA/image013.png" alt="NdC=√2*(PV/GRR)" class = "classimg">, il faut ensuite tronquer le résultat à l’entier. Attention les calculs indiqués en orange peuvent être impossibles dans le cas où le résultat de la soustraction serait négatif. Si cela se produit on considère le résultat comme étant 0.<br/>
+        
+        <h3>2ème sous partie : Interaction Opérateur*Pièce significative</h3>
+        Si l’interaction est significative les calculs de la GRR sont les suivants :<br/>
+        <img src="ImagedocMSA/image014.png" alt="Méthode Anova avec interaction non significative" class = "imgTableau"><br/>
+        <img src="ImagedocMSA/image013.png" alt="NdC=√2*(PV/GRR)" class = "classimg">, il faut ensuite tronquer le résultat à l’entier. Attention les calculs indiqués en orange peuvent être impossibles dans le cas où le résultat de la soustraction serait négatif. Si cela se produit on considère le résultat comme étant 0.<br/><br/>
+        <span class="souligner"> Interprétation :</span>
+        <br/>
+        Voici le tableau répertoriant les seuils généralement utilisés pour qualifier le moyen de mesure.
+        <br/><br/>
+        <img src="ImagedocMSA/couleurs_pour_R_R.png" alt="couleurs_RetR" class = "imgTableau"><br/>
+    </div>
+</body>
+
+</html>

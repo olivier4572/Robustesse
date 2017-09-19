@@ -1,0 +1,86 @@
+/*
+img {
+    animation: colorize 2s cubic-bezier(0, 0, .78, .36) 1;
+    background: transparent;
+    border: 10px solid rgba(0, 0, 0, 0.12);
+    border-radius: 4px;
+    display: block;
+    margin: 1.3em auto;
+    max-width: 95%;
+}
+
+@keyframes colorize {
+    0% {
+        -webkit-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+    100% {
+        -webkit-filter: grayscale(0%);
+        filter: grayscale(0%);
+    }
+}
+*/
+/* Onglet de saisie de la R&R */
+.div_contenu_Saisie_1 #div_aleatoire select {
+    float: none;
+    width: auto;
+}
+.div_contenu_Saisie_1 select {
+    float: left;
+    width: auto;
+    margin-top: 4px;
+    margin-right : 5px
+}
+.div_contenu_Saisie_1 #div_inputNom {
+    height: 0px;
+    /*    opacity : 0;*/
+    margin: 4px;
+}
+.div_contenu_Saisie_1 .div_select div:nth-child(1) {
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    overflow: auto;
+}
+.clsTitre {
+    width : 500px;
+    /*    opacity : 0;*/
+    margin: 2px;
+    font-size:1.5em;
+    text-align: center
+}
+#div_inputNom label {
+    clear: both;
+    float: left;
+    border: none;
+    margin-right: 2px;
+    text-align: right;
+    width: 20px;
+    height: 20px;
+    font-size: 0.5em;
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+#div_inputNom input {
+    float: left;
+    border: 2px solid black;
+    text-align: left;
+    width: 100px;
+}
+.btn #btnnom {
+    width: 50px;
+    height: 20px;
+}
+.btn #btnValiderNom {
+    clear: both;
+    width: 60px;
+    height: 20px;
+}
+.clsimageRRM {
+    width:750px;
+}

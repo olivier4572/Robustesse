@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>R et R</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <link rel="icon" type="image/png" href="../favicon.png" />
+
+    <link rel="stylesheet" href="../css/mainGen.css">
+    <link rel="stylesheet" href="../css/sliderdroite.css">
+    <link rel="stylesheet" href="../css/styleGen.css">
+    <link rel="stylesheet" href="../css/tableau.css">
+    <link rel="stylesheet" href="css/stylesRRM.css">
+    <link rel="stylesheet" href="css/tabslider.css">
+    <link rel="stylesheet" href="css/print.css" media="print">
+    <link rel="stylesheet" href="css/dessin.css">
+    <link rel="stylesheet" href="css/graph.css">
+
+    <script src="js/mainRRM.js"></script>
+    <script src="js/resultatRRM.js"></script>
+    <script src="js/etapeRRM.js"></script>
+    <script src="js/graphRRM.js"></script>
+    <script src="js/tabsliderRRM.js"></script>
+
+    <script src="../js/chart/V2.6/Chart.bundle.js"></script>
+    <script src="../js/chart/utils.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/Onglet.js"></script>
+    <script src="../js/mainGen.js"></script>
+    <script src="../js/read-csv.js"></script>
+    <script src="../js/DessinCanvas.js"></script>
+    <script src="../js/keyboard.js"></script>
+    <script src="../js/clipboard.js"></script>
+</head>
+
+<body onload="start()">
+    <header>
+        <div><a href="../index.html">Accueil</a></div>
+        <div>
+            <h1>R et R aux Mesures</h1>
+            <h5>
+                <div id="version"> version </div>
+            </h5>
+        </div>
+        <div><a href="html/doc/docRetRMesures.html" target="_blank">?</a></div>
+    </header>
+    <nav>
+        <div id="div_nav">
+            <!--
+                <ul class = "gray">
+                    <li><a  href="../index.html" >Acceuil</a> </li>    
+                    <Details>
+                        <summary>Doc</summary>
+                        <li><a href="html/doc/docRetR.html" target = "_blank" >doc R et R</a> </li>  
+                    </Details>
+                    <li><a onclick="javascript:loadPageHelp('html/doc/docRetR.html');">R&amp;R</a></li>
+                </ul>
+-->
+            <div id="div_frmLS">
+                <form name=frmLS>
+                    <div id = "divLSS">
+                        Limite supérieure de spécification
+<!--                        <input type="text" name="txtLSS" value="" onkeydown="applyKeyEnter()" onchange="majCookie()">-->
+                        <input type="text" name="txtLSS" value="" onkeydown="applyKeyEnter()" onblur="applyLsOnBlur()">
+                    </div>
+                    <div id = "divLSI">
+                        Limite inférieure de spécification
+                        <input type="text" name="txtLSI" value="" onkeydown="applyKeyEnter()" onblur="applyLsOnBlur()">
+                    </div>
+                    <div>
+                        Unité
+                        <input type="text" name="txtUnite" value="cm" onkeydown="applyKeyEnter()" onblur="applyLsOnBlur()">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="div_contenu">
+        <div id="div_onglet">
+            <ul id="onglets">
+                <li class="actif">Construction - Saisie</li>
+                <li>Tableaux</li>
+                <li>Analyses tolérances</li>
+                <li>Analyses graphiques</li>
+            </ul>
+            <div id="contenuOnglet">
+                <div class="item">
+                    <div class="div_contenu_Saisie">
+                        <form name="frmTitre">
+                            <input class="clsTitre" name="txtTitre" type="text" placeholder="Saisissez le nom de l'étude R&R " onkeydown="applyKeyEnter()" onchange="majCookie()">
+                            <input class="btn" type="button" value="Date du jour" onclick="majTitre()">
+                        </form>
+                        <!--                            Saisie du nombre d'opérateur, de pièce et d'essai-->
+                        <div class="div_contenu_Saisie_1" id="div_contenu_Saisie_1">
+                            <div class="div_select">
+                                <div>
+                                    <div class="div_Titre_Select">Opérateurs</div>
+                                    <select id="selectOperateur" required="required" onchange="changeSelect()" value=2>
+                                            <option Value="2" selected>2</option> 
+                                            <option Value="3">3</option> 
+                                            <option Value="4">4</option> 
+                                            <option Value="5">5</option> 
+                                            <option Value="6">6</option> 
+                                            <option Value="7">7</option> 
+                                            <option Value="8">8</option> 
+                                            <option Value="9">9</option> 
+                                            <option Value="10">10</option> 
+                                        </select>
+                                    <div class="btn">
+                                        <button id="btnnom" type="button" onclick="clickNom()">Nom</button>
+                                    </div>
+                                </div>
+                                <div class="btn" id="div_inputNom">
+                                </div>
+                            </div>
+                            <div class="div_select">
+                                <div>
+                                    <div class="div_Titre_Select">Pièces</div>
+                                    <select id="selectPiece" required="required" onchange="changeSelect()" value=3>
+                                            <option Value="3" selected>3</option>
+                                            <option Value="4">4</option>
+                                            <option Value="5">5</option>
+                                            <option Value="6">6</option>
+                                            <option Value="7">7</option>
+                                            <option Value="8">8</option>
+                                            <option Value="9">9</option>
+                                            <option Value="10">10</option>
+                                            <option Value="11">11</option>
+                                            <option Value="12">12</option>
+                                            <option Value="13">13</option>
+                                            <option Value="14">14</option>
+                                            <option Value="15">15</option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="div_select">
+                                <div>
+                                <div class="div_Titre_Select">Essais</div>
+                                    <select id="selectRepetition" required="required" onchange="changeSelect()" value=2>
+                                            <option Value="2" selected>2</option> 
+                                            <option Value="3">3</option> 
+                                            <option Value="4">4</option> 
+                                            <option Value="5">5</option> 
+                                            <option Value="6">6</option> 
+                                            <option Value="7">7</option> 
+                                            <option Value="8">8</option> 
+                                            <option Value="9">9</option> 
+                                            <option Value="10">10</option> 
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="div_select" id="div_aleatoire">
+                                <div>
+                                    <form name=frmAleatoire>
+                                        <input type="checkbox" name="chkAleatoire" value="1" onclick="creationTableau('chkAleatoire')"> Aléatoire
+                                        <select name="selectAleatoire" onchange="creationTableau('selectAleatoire')">
+                                                <option value="1" selected>Opérateur/Pièce</option>
+                                                <option value="2">Pièce</option>
+                                            </select>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!--                         Tableau-->
+                        <div class="div_contenu_Saisie_2">
+                            <div class = div_tableau id="div_tableau"></div>
+                            <div class="div_editable">
+                                <input id="idResetMesure" type="button" value="Reset" onclick="resetMesure()">
+                                <input id="input_editable" type="button" value="Modifier les mesures" onclick="celluleEditable()">
+                            </div>
+                        </div>
+                        <!--                         Bouton-->
+                        <div class="div_contenu_Saisie_3">
+                            <div id="div_Button">
+                                <div class = "flexdiv" >
+                                    <button id="boutonCopieTableauVersPressePapier" type="button" onclick="copieTableauVersPressePapier()"><img src = "../Image/Icone_Copier_tableau_vers_presse_papier.png" alt ="Copier le tableau vers le presse papier"><span class='copiedtext' aria-hidden='true'>Copié</span>
+                                        </button>
+                                    <span class="boutonCommentaire">Copier le tableau vers le presse papier</span>
+                                </div>
+                                <div class = "flexdiv">
+                                    <div id="labelOuvrir">
+                                        <form name="formfichier">
+                                            <a><img src="../Image/ouvrir.png" alt="Ouvrir le fichier csv"></a>
+                                            <span class='copiedtext' aria-hidden='true'>Ouvert</span>
+                                            <input type="file" id="csvFileInput" name ="fichier" onchange="handleFiles(this.files)" accept=".csv"  onclick="resetFiles()">
+                                        </form>
+                                    </div>
+                                    <span class="boutonCommentaire">Ouvrir le fichier csv</span>
+                                </div>
+                                <div class = "flexdiv" >
+                                    <button id="boutonCopieMesuresVersPressePapier" type="button" onclick="copieMesuresVersPressePapier()"><img src = "../Image/Icone_Copier_mesures_vers_presse_papier.png" alt ="Copier les mesures vers le presse papier"><span class='copiedtext' aria-hidden='true'>Copié</span></button>
+                                    <span class="boutonCommentaire">Copier les mesures vers le presse papier</span>
+                                </div>
+                            </div>
+                            <div id="div_Button">
+                                <div class = "flexdiv" >
+                                    <button id="boutonCopieTableauDepuisPressePapier" type="button" onclick="copieTableauDepuisPressePapier()"><img src = "../Image/Icone_Importer_tableau_depuis_presse_papier.png" alt ="importer le tableau depuis le presse papier"><span class='copiedtext' aria-hidden='true'>Récupéré</span></button>
+                                    <span class="boutonCommentaire">importer le tableau depuis le presse papier</span>
+                                </div>
+                                <div class = "flexdiv" >
+                                    <button id="boutonEnregistrerCsv" type="button" onclick="enregistrerCsvRetR()"><img src = "../Image/Enregistrer.png" alt ="Enregistrer le tableau au format csv"><span class='copiedtext' aria-hidden='true'>Sauvegardé</span></button>
+                                    <span class="boutonCommentaire">Enregistrer le tableau au format csv</span>
+                                </div>
+                                <div class = "flexdiv" >
+                                    <button id="boutonImporterMesuresDepuisPressePapier" type="button" onclick="importeMesuresDepuisPressePapier()"><img src = "../Image/Icone_Importer_mesures_depuis_presse_papier.png" alt ="importer les mesures depuis le le presse papier"><span class='copiedtext' aria-hidden='true'>Récupéré</span></button>
+                                    <span class="boutonCommentaire">importer les mesures depuis le presse papier</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="div_contenu_Saisie_4">
+                            <div id="div_commentaire">
+                                <textarea id="txtcommentaire" placeholder="Entrez vos commentaires ici"></textarea>
+                            </div>
+                            <div id="div_collerclipboard">
+                                <button onclick="afficheClipboard()">Affiche la zone pour copier le presse papier</button>
+                                <textarea id="collerclipboard" placeholder="Coller ici le Presse Papier" spellcheck="false"></textarea></div>
+                            <div class="div_clipboard">
+                                <textarea id="clipboard" spellcheck="false"></textarea></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="tabslider">
+                        Résultats des calculs sous forme de tableaux selon le MSA 4th
+                        <div class="content">
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Tableau des moyennes et étendues
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_tableau_RetR1"></div>
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Rapport étude R&amp;R méthode de l'étendue et % de variation
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_tableau_RetR2"></div>
+                                    <img class ="clsimageRRM" src="../Image/couleurs_pour_R_R.png">
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Table ANOVA
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_tableau_RetR3"></div>
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+<!--                                    Résultat R&amp;R méthode de l'ANOVA -->
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_tableau_RetR4"></div>
+                                    <img class ="clsimageRRM" src="../Image/couleurs_pour_R_R.png">
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Synthèse de l'étude
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_tableau_RetR5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <div class="nav-tab">Tableau Moyennes</div>
+                            <div class="nav-tab">Méthode étendue</div>
+                            <div class="nav-tab">Table Anova</div>
+                            <div class="nav-tab">Méthode Anova</div>
+                            <div class="nav-tab">Synthèse</div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="item">
+                    <div id="dessin">
+                        <canvas id="canvasEtape">
+                               Votre navigateur ne supporte pas encore canvas.
+                        </canvas>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="tabslider">
+                        <div class="content2">
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Composantes de la variation
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_canvas1">
+                                    </div>
+<!--                                    <div id="chart1_div" class="chart1"></div>-->
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Carte X barre et carte R
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id="div_canvas2">
+                                    </div>
+                                    <div id="div_canvas3">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Carte Par Pièce
+                                    <div id="div_canvas4">
+                                    </div>
+                                </div>
+                                <div class="sub-sub-content">
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Carte Par opérateur
+                                    <div id="div_canvas5">
+                                    </div>
+                                </div>
+                                <div class="sub-sub-content">
+                                </div>
+                                <div class="sub-sub-content">
+                                </div>
+                            </div>
+                            <div class="sub-content">
+                                <div class="sub-sub-content">
+                                    Carte Interaction Opérateur*Pièce
+                                    <div id="div_canvas6">
+                                    </div>
+                                </div>
+                                <div class="sub-sub-content">
+                                    <div id ="div_OP_PIE"></div>
+                                </div>
+                                <div class="sub-sub-content">
+                                </div>
+                            </div>
+                        </div>
+                        <nav>
+                            <div class="nav-tab2">Composantes</div>
+                            <div class="nav-tab2">Carte Xbar R</div>
+                            <div class="nav-tab2">Carte par pièce</div>
+                            <div class="nav-tab2">Carte par Opé.</div>
+                            <div class="nav-tab2">Interaction</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="slidedroite" class="pasancrer">
+        <ul>
+            <div>
+                <button id="ancrageHaut" type="button" onclick="ancrerSliderDroite()"><img id= "imageAncrer" src = "../Image/punaiseOFF.png" alt ="ancrer aide"></button>
+            </div>
+            <li>
+                <a>
+                    <div> ? </div>
+                    <div  id="ancrageBas">
+                        <button type="button" class="pure-button" onclick="ancrerSliderDroite()"><img id= "imageAncrer2" src = "../Image/punaiseOFF.png" alt ="ancrer aide"></button>
+                    </div>
+                </a>
+                <div id="div_doc">
+                    <iframe src="html/doc/doc1.html"> </iframe>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+    </footer>
+    <script>
+        /*global setversion*/
+        setversion();
+    </script>
+</body>
+
+</html>

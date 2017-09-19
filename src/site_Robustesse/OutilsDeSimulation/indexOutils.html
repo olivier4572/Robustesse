@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html id="myHtml">
+<!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+<head>
+    <title>Outils de simulation</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" type="image/png" href="../favicon.png" />
+
+    <link href="../css/mainGen.css" rel="stylesheet">
+    <link href="../css/styleGen.css" rel="stylesheet">
+    <link href="../css/sliderdroite.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/print.css" rel="stylesheet">
+
+    <script src="js/mainOutils.js"></script>
+    <script src="../js/cookie.js"></script>
+    <script src="../js/mainGen.js"></script>
+
+
+    <!-- Uncomment the following scripts if you convert your "Standard HTML5" project into a "Cordova" project. -->
+    <!-- <script src="cordova.js"></script> -->
+    <!-- phantom library, needed for Cordova api calls, added during build -->
+    <!-- <script src="js/app.js"></script> -->
+    <!-- recommended location of your JavaScript code relative to other JS files -->
+    <!-- <script src="xdk/init-dev.js"></script> -->
+    <!-- normalizes device and document ready events, see README for details -->
+</head>
+
+<style>
+</style>
+
+<body>
+    <script>
+        var Language;
+        Language = recupCookieLangue();
+        langue(Language);
+    </script>
+
+    <header>
+        <div>
+            <a class='fr' href="../index.html">Accueil</a>
+            <a class='en' href="../index.html">Home</a>
+        </div>
+        <div class="fr">
+            <h1>Outils de simulations statistiques</h1>
+            <h5>
+                <div id="version"> version </div>
+            </h5>
+        </div>
+        <div class="en">
+            <h1>Statistical simulation tools</h1>
+            <h5>
+                <div id="version"> version </div>
+            </h5>
+        </div>
+        <div>
+            <img src="../Image/France.png" alt="fr" onclick="majlangue('fr')">
+            <img src="../Image/United_Kingdom.png" alt="en" onclick="majlangue('en')">
+            <!--            <a href="" lang="en" hreflang="en"><img src ="../Image/United_Kingdom.png" alt ="en"></a>-->
+            <a href="html/doc/docOutilsStatistiques.html" target="_blank">?</a>
+        </div>
+    </header>
+    <nav>
+        <div id="div_nav">
+            <!--
+            <div class ="en">anglais</div>
+            <div class ="fr">français</div>
+            <div class ="de">allemand</div>
+-->
+        </div>
+    </nav>
+    <div id="div_contenu">
+        <iframe id='iframeId' src="indexStatistiques.html"> </iframe>
+    </div>
+    <div id="slidedroite" class="pasancrer">
+        <ul>
+            <div>
+                <button id="ancrageHaut" type="button" onclick="ancrerSliderDroite()"><img id= "imageAncrer" src = "../Image/punaiseOFF.png" alt ="ancrer aide"></button>
+            </div>
+            <li>
+                <a>
+                    <div> ? </div>
+                    <div id="ancrageBas">
+                        <button type="button" class="pure-button" onclick="ancrerSliderDroite()"><img id= "imageAncrer2" src = "../Image/punaiseOFF.png" alt ="ancrer aide"></button>
+                    </div>
+                </a>
+                <div id="div_doc">
+                    <iframe src="html/doc/docOutilsStatistiques.html"></iframe>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <footer>
+    </footer>
+    <script>
+        /*global setversion*/
+        setversion();
+    </script>
+
+
+</body>
+
+</html>

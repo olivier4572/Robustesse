@@ -1,0 +1,80 @@
+:root {
+    --deg: 45deg;
+    /*
+  --color1: #c1c1c7;
+  --color2: #a2b3ba;
+*/
+    --color1: white;
+    --color2: white;
+    --colorBouton: #00baff;
+}
+.clsTableau {
+    text-align: center;
+    border: 10px;
+    border-style: groove;
+}
+.clsTableau tr:nth-of-type(odd) {
+    /*    background: linear-gradient(var(--deg),var(--color1),var(--color2));*/
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--deg)), color-stop(var(--color1)), to(var(--color2)));
+    background: linear-gradient(var(--deg), var(--color1), var(--color2));
+}
+.clsTableau tr:nth-of-type(even) {
+    /*background: linear-gradient(var(--deg),var(--color2),var(--color1));*/
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--deg)), color-stop(var(--color2)), to(var(--color1)));
+    background: linear-gradient(var(--deg), var(--color2), var(--color1));
+}
+.clsTableau td {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+}
+.clsTableauRetR {
+    text-align: center;
+    border: 10px;
+    border-style: groove;
+    background: -webkit-gradient(linear, left top, left bottom, from(var(--deg)), color-stop(var(--color1)), to(var(--color2)));
+    background: linear-gradient(var(--deg), var(--color1), var(--color2));
+}
+.clsTableauRetR caption {
+    caption-side: bottom;
+}
+.clsTableauRetR td {
+    min-width: 50px;
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    font-size: 0.8em;
+}
+.clsTableauRetR_Head td {
+    font-size: 1em;
+}
+.clsTableauRetR_Operateur {
+    font-size: 1em;
+}
+.clsTableauRetR_Vert {
+    background: #81d981;
+    font-weight: 100;
+}
+.clsTableauRetR_Jaune {
+    background: yellow;
+    font-weight: 500;
+}
+.clsTableauRetR_Orange {
+    background: orange;
+    font-weight: 500;
+}
+.clsTableauRetR_Rouge {
+    background: red;
+    font-weight: 600;
+}
+.clsTableauRetR_Gris {
+    background: Grey;
+}
+.clsTableauRetRpValue_Rouge {
+    background: #f0afaf;
+    font-weight: 800
+}
+.clsTableauRetR .clsTableauRetR_Taille1 {
+    font-size: 1em;
+    border-style: groove;
+}

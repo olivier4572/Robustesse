@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>documentation Capabilites</title>
+    <meta name="description" content="Documentation Capabilites.">
+    <link rel="stylesheet" href="../../../css/mainGen.css">
+    <link rel="stylesheet" href="../../../css/styleGen.css">
+
+</head>
+
+<body>
+
+    <div id="doc">
+
+        <h1>DOCUMENTATION Capabilites</h1>
+        <p class=sci>
+            On retrouve ici la représentation graphique classique d'une étude de capabilités. L'histogramme représente la répartition des valeurs renseignées ou importées dans l'onglet Données.
+            <br /><br />
+            Les barres rouges représentent l'intervalle de tolérance avec LSI pour limite de spécification inférieure et LSS pour limite de spécification supérieure.
+            <br /><br />
+            La moyenne est représentée par la barre verticale bleue
+            <br /><br />
+            La courbe noire (gaussienne) représente la loi normale qui décrit les données prises toutes ensembles <b>si elles suivent une loi normale.</b> Il faut donc vérifier que nos données suivent bien une loi normale avant de pouvoir interpréter les indices de capabilité.
+            Pour cela, un test de normalité est réalisé et le résultat est affiché à gauche du graphique. Si la p-value est inférieure à 0,05, les données ne suivent pas une loi normale et on ne parlera pas de Cp ou Cpk long terme mais de Pp ou de Ppk. Si les données suivent une loi normale (ce qui serait étonnant si vous avez 200 valeurs ...), vous pouvez parler de Cp et de Cpk long terme au lieu de Pp et Ppk après avoir vérifié par une carte de contrôle qu'il n'y a pas de valeurs hors limites de contrôle.
+            <br /><br />
+            On trouve ensuite en vert les limites à +/- 3 écarts-types autour de la moyenne générale qui correspond à l'intervalle dans lequel on estime que se trouvent 99,73% des valeurs de nos mesures si les données suivent une loi normale. C'est cette largeur qui est comparée à l'intervalle de tolérance et qui permet de calculer Pp et Ppk
+            <br /><br />
+            La gaussienne violette et les barres violettes représentent quant à elles la dispersion court-terme de notre process. Cet intervalle est calculé à partir des moyennes des étendues des "rational subgroups" qui nous donnent un sigma intra et qui correspond à une estimation de l'écart-type court-terme. Voir <a href="https://www.isixsigma.com/tools-templates/capability-indices-process-capability/cp-cpk-pp-and-ppk-know-how-and-when-use-them/">ici</a> On peut alors calculer la capabilité intra (ou court-terme de notre process) en divisant l'intervalle de tolérance par la largeur entre les barres violettes qui sont à +/-3 écarts-type intra. On obtient ainsi Cp intra. Pour le Cpk intra, il faut prendre en compte le centrage avec les formules vues en formation
+            <br /><br />
+            Le nombre hors spec prévisionnel représente la fraction estimée de pièces qui seront soit  supérieures à la limite supérieure soit inférieures à la limite inférieure de spécification. Il s'agit de l'aire sous la gaussienne à droite (respectivement à gauche) de la ligne rouge sachant que l'aire totale sous la gaussienne vaut 100%
+            <br /><br />
+            <b>Régle du pouce</b> : Si le Cp intra est proche du Pp et que le Cpk intra est proche du Ppk, c'est que la dispersion de notre process est principalement due à des variations court-terme. On cherchera alors des causes liées à la machine qui ne serait pas répétable ou à des procédures opérationnelles floues ou mal respectées, ou encore à une mauvaise R&amp;R.
+            En revanche, s'il existe une différence significative entre le Cp intra et le Pp, cela nous indique que le process est peut-être capable sur le court-terme mais que des variations importantes se produisent entre les différents sous-groupes, comme par exemple des changements de matière première, des changements de réglages, des changements d'équipe et on esseaiera d'identifier ces causes assignables si les capabilités ne sont pas bonnes (rappel on cherche Ppk>1.33)
+            
+        </p>
+
+
+    </div>
+
+</body>
+
+</html>

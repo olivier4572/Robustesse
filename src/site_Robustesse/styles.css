@@ -1,0 +1,84 @@
+     :root {
+        --deg: 45deg;
+        /*
+  --color1: #c1c1c7;
+  --color2: #a2b3ba;
+*/
+        --colorBouton: #00baff;
+        --color1: white;
+        --color2: white;
+    }
+    
+    html {
+        background: linear-gradient(var(--deg), var(--color1), var(--color2));
+    }
+    
+    body {
+        width: 1024px;
+        Height: 768px;
+        background: linear-gradient(var(--deg), var(--color1), var(--color2));
+        margin: 0px auto;
+        display: block;
+        /*    background-image: url(Image/Robustesse%20des%20procedes.png);*/
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    header {}
+    
+    nav {}
+    
+    #div_Nav {
+        background: linear-gradient(var(--deg), var(--color1), var(--color2));
+        margin: 20px;
+    }
+    
+    #div_Nav a:nth-of-type(even) {
+        color: #4d4747;
+    }
+    
+    #div_Nav a:nth-of-type(odd) {
+        color: #1414ba;
+        margin: 10px;
+    }
+    
+    #div_Contenu {
+        margin: 10px;
+        height: 600px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        /* retour à la ligne si plus de place */
+        /* aligne sur l'axe principale , space around : les éléments sont étirés sur tout l'axe avec espace sur les extrémités*/
+        -ms-flex-pack: distribute;
+        justify-content: space-around;
+        /*  aligne sur l'axe secondaire */
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+    
+    .ImageMenu {
+        margin: 30px;
+    }
+    
+    #div_Contenu img {
+        flex: 0 0 auto;
+        /* important pour IE*/
+        border: 5px solid rgba(186, 54, 54, 0.41);
+    }
+    
+    #div_google {
+        /*
+    float:left;
+    margin-right:10px;
+    margin-top:-3px"
+    */
+    }

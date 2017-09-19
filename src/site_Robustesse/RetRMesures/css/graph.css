@@ -1,0 +1,26 @@
+.chart1,
+.chart2,
+.chart3 {
+    background: white;
+    /*    clear:both;*/
+}
+#div_canvas1 {
+    display: inline-block;
+    width: 700px;
+    height: 400px;
+}
+#div_canvas2 {
+    display: inline-block;
+    width: 500px;
+    line-height: 100px;
+    margin: 10px;
+    vertical-align: middle;
+}
+#div_canvas3 {
+    display: inline-block;
+    width: 500px;
+    line-height: 100px;
+    margin: 10px;
+    vertical-align: middle;
+}
+#chart1_div {}
