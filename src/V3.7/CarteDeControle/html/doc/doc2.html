@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>documentation Cartes de Controle</title>
+    <meta name="description" content="Documentation Cartes de Controle.">
+    <link rel="stylesheet" href="../../../css/mainGen.css">
+    <link rel="stylesheet" href="../../../css/styleGen.css">
+
+</head>
+
+<body>
+
+    <div id="doc">
+
+        <h1>DOCUMENTATION Cartes de Contrôle</h1>
+        
+
+        <p class=sci>
+            On retrouve ici la représentation graphique classique d'une carte I/EM. Le graphique du haut représente la carte individuelle, c'est-à-dire que chaque point représente la valeur de chaque mesure individuelle. La carte du bas représente les étendues mobiles. Chaque point représente la différence entre la valeur d'une mesure et la valeur de la mesure précédente. Ainsi, sur cette carte des étendues mobiles on aura un point de moins que sur la carte du haut et le premier point est d'ailleurs en face du 2ème de la carte du haut.
+            <br /><br />
+            Pour interpréter cette carte, il faut vérifier que nos données suivent bien une loi normale 
+            Pour cela, un test de normalité est réalisé et le résultat est affiché à gauche du graphique. Si la p-value est inférieure à 0,05, les données ne suivent pas une loi normale et on ne peut pas interpréter cette carte. Il faut alors se rapprocher d'un Green Belt ou d'un Black Belt ou alors utiliser la carte Xbar/R. Il faut aussi se poser la question de savoir s'il est normal que les données ne suivent pas une loi normale ! Certaines grandeurs physiques ne peuvent pas physiquement suivre des lois normales. C'est le cas notamment des concentricités ou des planéités qui sont "bornée" par la valeur 0.
+            <br /><br />
+            On trouve sur la carte du haut la moyenne des valeurs en vert et les limites de contrôle lscx et licx à +/-3 écarts-types autour de la moyenne. L'écart-type utilisé est "Sigma estimé". Si les données suivent une loi normale et qu'aucun point ne sort des limites, on peut conclure que le process est "sous-contrôle" mais il faudrait encore réaliser les tests des <a href="https://www.wikiwand.com/en/Western_Electric_rules">Western Electric Rules</a> ou des <a href="https://www.wikiwand.com/en/Nelson_rules">Nelson Rules</a> pour être plus rigoureux. Cest tests ne sont pas disponibles dans cet outil de simulation.
+            <br /><br />
+            On trouve sur la carte du bas la moyenne des étendues mobiles en vert avec les limites de contrôle de l'étendue mobile lscr et licr. Si un ou plusieurs points sortent des limites de contrôle sur cette carte, c'est qu'un changement "anormal" et une variation "instantanée" ou très court terme s'est produite à ce moment là et qu'il est recommandé d'investiguer sur ce qui s'est produit.
+            <br /><br />
+            <b>Régle du pouce</b> : dans les cartes I/EM, on commence <b>toujours</b> par analyser la carte des étendues car si elle présente des points hors-limites, les valeurs des limites de la carte individuelle seront faussées. En effet le sigma estimé de la carte I est calculé à partir de la moyenne des étendues de la carte R
+            
+        </p>
+
+
+    </div>
+
+</body>
+
+</html>
